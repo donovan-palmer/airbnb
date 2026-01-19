@@ -15,5 +15,9 @@
 -- | Entire serviced apartment           | 1271     | 2021-10-17                 |
 -- | Entire townhouse                    | 3588     | 2021-10-17                 |
 -- | Entire villa                        | 75       | 2021-10-12                 |
+SELECT L.property_type, COUNT(DISTINCT r.id), MAX(R.date_reviewed)
+FROM reviews R, listings L
+WHERE R.listing_id = L.id
+GROUP BY L.property_type;
 
 
